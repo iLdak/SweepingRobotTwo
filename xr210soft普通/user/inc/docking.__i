@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -g -O3 --apcs=interwork -I.\inc -I.\user\inc -I..\xr2101soft -I "D:\arm\ARM\INC" -I "D:\arm\ARM\INC\ST\STM32F10x" -o "docking.o" --omf_browse "docking.crf" --depend "docking.d" "user\src\docking.c"

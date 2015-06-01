@@ -1,0 +1,4 @@
+--cpu Cortex-M3 "stm32f10x_adc.o" "stm32f10x_bkp.o" "stm32f10x_dma.o" "stm32f10x_exti.o" "stm32f10x_flash.o" "stm32f10x_gpio.o" "stm32f10x_lib.o" "stm32f10x_nvic.o" "stm32f10x_rcc.o" "stm32f10x_rtc.o" "stm32f10x_tim.o" "stm32f10x_iwdg.o" "stm32f10x_pwr.o" "stm32f10x_vector.o" "cortexm3_macro.o" "stm32f10x_it.o" "io_drive.o" "key.o" "lcdkey.o" "main.o" "power.o" "ring.o" "test.o" "a7105.o" "wall_earth.o" "hwincept.o" "ad.o" "pwm.o" "time1.o" "rtc.o" "hardware.o" "flash.o" "watchdog.o" "function.o" "cease.o" "sweep.o" "docking.o" "spot.o" "tele.o" "chargeing.o" "sleep.o" "err.o" "border.o" --strict --scatter "xr210soft.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\xr210soft.map" -o "xr210soft.axf"

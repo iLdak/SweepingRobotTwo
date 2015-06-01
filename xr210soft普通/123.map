@@ -1,0 +1,523 @@
+ARM Linker, 4.1 [Build 644] [Standard]
+
+==============================================================================
+
+Section Cross References
+
+    stm32f10x_adc.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphResetCmd
+    stm32f10x_bkp.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_BackupResetCmd
+    stm32f10x_gpio.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphResetCmd
+    stm32f10x_nvic.o(.text) refers to cortexm3_macro.o(.text) for __SETPRIMASK
+    stm32f10x_rcc.o(.text) refers to stm32f10x_rcc.o(.data) for HSEStatus
+    stm32f10x_rcc.o(.text) refers to stm32f10x_rcc.o(.constdata) for APBAHBPrescTable
+    stm32f10x_tim.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB1PeriphResetCmd
+    stm32f10x_tim.o(.text) refers to stm32f10x_tim.o(.constdata) for Tab_OCModeMask
+    stm32f10x_pwr.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB1PeriphResetCmd
+    stm32f10x_pwr.o(.text) refers to cortexm3_macro.o(.text) for __WFI
+    stm32f10x_vector.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    stm32f10x_vector.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    stm32f10x_vector.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    stm32f10x_vector.o(RESET) refers to stm32f10x_vector.o(STACK) for __initial_sp
+    stm32f10x_vector.o(RESET) refers to stm32f10x_vector.o(.text) for Reset_Handler
+    stm32f10x_vector.o(RESET) refers to stm32f10x_it.o(.text) for NMIException
+    stm32f10x_vector.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    stm32f10x_vector.o(.text) refers to __main.o(!!!main) for __main
+    stm32f10x_vector.o(.text) refers to stm32f10x_vector.o(HEAP) for Heap_Mem
+    stm32f10x_vector.o(.text) refers to stm32f10x_vector.o(STACK) for Stack_Mem
+    stm32f10x_it.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_GenerateSystemReset
+    stm32f10x_it.o(.text) refers to stm32f10x_exti.o(.text) for EXTI_GetITStatus
+    stm32f10x_it.o(.text) refers to a7105.o(.text) for RxPacket
+    stm32f10x_it.o(.text) refers to stm32f10x_adc.o(.text) for ADC_ClearITPendingBit
+    stm32f10x_it.o(.text) refers to ad.o(.text) for ReInitAd
+    stm32f10x_it.o(.text) refers to stm32f10x_tim.o(.text) for TIM_ClearITPendingBit
+    stm32f10x_it.o(.text) refers to hwincept.o(.text) for read_hw_data
+    stm32f10x_it.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_ReadInputDataBit
+    stm32f10x_it.o(.text) refers to stm32f10x_rtc.o(.text) for RTC_GetITStatus
+    stm32f10x_it.o(.text) refers to a7105.o(.data) for gbv_a7105_reset
+    stm32f10x_it.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    stm32f10x_it.o(.text) refers to time1.o(.data) for giv_sys_time
+    stm32f10x_it.o(.text) refers to sleep.o(.data) for ExitInput
+    stm32f10x_it.o(.text) refers to ad.o(.data) for ADC_ready
+    stm32f10x_it.o(.text) refers to power.o(.data) for POWER_ready
+    stm32f10x_it.o(.text) refers to lcdkey.o(.data) for dis_updata
+    stm32f10x_it.o(.text) refers to ring.o(.data) for rap_time
+    stm32f10x_it.o(.text) refers to key.o(.data) for key_time
+    stm32f10x_it.o(.text) refers to wall_earth.o(.data) for wall_earth_time
+    stm32f10x_it.o(.text) refers to rtc.o(.data) for watchdog_time
+    stm32f10x_it.o(.text) refers to hwincept.o(.data) for Action_hwincept
+    stm32f10x_it.o(.text) refers to hwincept.o(.bss) for l_hw
+    stm32f10x_it.o(.text) refers to stm32f10x_it.o(.data) for r_step
+    stm32f10x_it.o(.text) refers to ring.o(.bss) for r_ring
+    io_drive.o(.text) refers to hardware.o(.text) for Reset_UV
+    io_drive.o(.text) refers to time1.o(.text) for DelayMs
+    io_drive.o(.text) refers to io_drive.o(.data) for gbv_action_uv
+    io_drive.o(.text) refers to time1.o(.data) for giv_sys_time
+    key.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_EXTILineConfig
+    key.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_Init
+    key.o(.text) refers to hardware.o(.text) for Read_Key1
+    key.o(.text) refers to key.o(.bss) for key1
+    key.o(.text) refers to key.o(.data) for hightaction
+    key.o(.data) refers to key.o(.bss) for charge_dc
+    lcdkey.o(.text) refers to hardware.o(.text) for Reset_LCD_Stb
+    lcdkey.o(.text) refers to lcdkey.o(.bss) for Dis_Data
+    lcdkey.o(.text) refers to lcdkey.o(.data) for Dis_Power
+    lcdkey.o(.text) refers to lcdkey.o(.constdata) for dispower
+    lcdkey.o(.text) refers to time1.o(.data) for giv_sys_time
+    main.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_SetVectorTable
+    main.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_DeInit
+    main.o(.text) refers to stm32f10x_flash.o(.text) for FLASH_PrefetchBufferCmd
+    main.o(.text) refers to watchdog.o(.text) for Init_WatchDog
+    main.o(.text) refers to hardware.o(.text) for Init_Hardware
+    main.o(.text) refers to hwincept.o(.text) for init_hwincept
+    main.o(.text) refers to pwm.o(.text) for Init_PWM
+    main.o(.text) refers to ad.o(.text) for init_ad
+    main.o(.text) refers to io_drive.o(.text) for Init_Io_Driver
+    main.o(.text) refers to lcdkey.o(.text) for Init_Lcd
+    main.o(.text) refers to key.o(.text) for init_key
+    main.o(.text) refers to ring.o(.text) for Init_Ring
+    main.o(.text) refers to power.o(.text) for init_power
+    main.o(.text) refers to wall_earth.o(.text) for init_wallearth
+    main.o(.text) refers to rtc.o(.text) for init_rtc
+    main.o(.text) refers to time1.o(.text) for init_time
+    main.o(.text) refers to a7105.o(.text) for initRF
+    main.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_PinLockConfig
+    main.o(.text) refers to function.o(.text) for Init_Mode
+    main.o(.text) refers to stm32f10x_rtc.o(.text) for RTC_GetCounter
+    main.o(.text) refers to main.o(.data) for gpiod
+    main.o(.text) refers to rtc.o(.data) for Rtc_time
+    power.o(.text) refers to ad.o(.text) for account_current
+    power.o(.text) refers to pwm.o(.text) for disable_pwm
+    power.o(.text) refers to err.o(.text) for Init_Err
+    power.o(.text) refers to rtc.o(.text) for WriteBakBatteryChargeTime
+    power.o(.text) refers to power.o(.data) for battery_temp
+    power.o(.text) refers to power.o(.bss) for power
+    power.o(.text) refers to function.o(.data) for giv_sys_err
+    power.o(.text) refers to time1.o(.data) for giv_sys_time
+    power.o(.text) refers to rtc.o(.data) for giv_BatteryActivation
+    power.o(.text) refers to lcdkey.o(.data) for Dis_PowerGlint
+    power.o(.text) refers to power.o(.constdata) for temp
+    power.o(.text) refers to key.o(.bss) for charge_dc
+    ring.o(.text) refers to lcdkey.o(.text) for delay
+    ring.o(.text) refers to ad.o(.text) for account_current
+    ring.o(.text) refers to pwm.o(.text) for disable_pwm
+    ring.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_SetBits
+    ring.o(.text) refers to ring.o(.bss) for l_ring
+    ring.o(.text) refers to time1.o(.data) for giv_sys_time
+    ring.o(.text) refers to ring.o(.data) for jt_r_current
+    ring.o(.text) refers to lcdkey.o(.data) for Dis_Speed
+    ring.o(.text) refers to time1.o(.text) for DelayMs
+    ring.o(.text) refers to function.o(.data) for giv_sys_err
+    ring.o(.text) refers to hardware.o(.text) for Reset_M_FPMOS
+    test.o(.text) refers to lcdkey.o(.text) for Clr_DisplayData
+    test.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    test.o(.text) refers to key.o(.text) for AutoReadKey
+    test.o(.text) refers to ring.o(.text) for enable_rap
+    test.o(.text) refers to function.o(.text) for do_action
+    test.o(.text) refers to io_drive.o(.text) for Io_Driver
+    test.o(.text) refers to lcdkey.o(.bss) for Dis_Data
+    test.o(.text) refers to key.o(.bss) for key1
+    test.o(.text) refers to time1.o(.data) for Sec
+    test.o(.text) refers to lcdkey.o(.data) for Dis_Hour
+    test.o(.text) refers to test.o(.data) for direction
+    test.o(.text) refers to ring.o(.bss) for l_rap
+    test.o(.text) refers to io_drive.o(.data) for gbv_action_uv
+    test.o(.text) refers to power.o(.text) for chargeing
+    test.o(.text) refers to ad.o(.text) for account_current
+    test.o(.text) refers to power.o(.data) for l_current_1s
+    test.o(.text) refers to power.o(.constdata) for temp
+    test.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    test.o(.text) refers to hwincept.o(.bss) for l_hw
+    test.o(.text) refers to wall_earth.o(.bss) for w_l
+    test.o(.text) refers to pwm.o(.text) for enable_pwm
+    test.o(.text) refers to power.o(.bss) for power
+    test.o(.text) refers to wall_earth.o(.text) for Enable_earth
+    test.o(.text) refers to hwincept.o(.text) for enable_hwincept
+    test.o(.text) refers to hardware.o(.text) for Reset_Speed_Send
+    test.o(.text) refers to rtc.o(.text) for ReadBakBatteryActivation
+    test.o(.text) refers to a7105.o(.text) for A7105_rx
+    test.o(.text) refers to rtc.o(.data) for giv_BatteryActivation
+    test.o(.text) refers to function.o(.data) for giv_sys_err
+    a7105.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    a7105.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_Init
+    a7105.o(.text) refers to lcdkey.o(.text) for delay
+    a7105.o(.text) refers to a7105.o(.data) for A7105Config
+    a7105.o(.text) refers to time1.o(.text) for DelayMs
+    a7105.o(.text) refers to flash.o(.text) for write_flash
+    a7105.o(.text) refers to hardware.o(.text) for Set_Beep
+    a7105.o(.text) refers to stm32f10x_exti.o(.text) for EXTI_Init
+    a7105.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_Init
+    a7105.o(.text) refers to a7105.o(.constdata) for ID_Tab
+    a7105.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    a7105.o(.text) refers to time1.o(.data) for giv_sys_time
+    wall_earth.o(.text) refers to ad.o(.text) for account_current
+    wall_earth.o(.text) refers to hardware.o(.text) for Reset_Wall_Send
+    wall_earth.o(.text) refers to wall_earth.o(.data) for action_wall
+    wall_earth.o(.text) refers to wall_earth.o(.bss) for e_l
+    hwincept.o(.text) refers to hardware.o(.text) for Set_HW_Power
+    hwincept.o(.text) refers to hwincept.o(.data) for Action_hwincept
+    hwincept.o(.text) refers to time1.o(.data) for giv_sys_time
+    hwincept.o(.text) refers to hwincept.o(.bss) for l_hw
+    ad.o(.text) refers to stm32f10x_dma.o(.text) for DMA_DeInit
+    ad.o(.text) refers to stm32f10x_adc.o(.text) for ADC_DeInit
+    ad.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_Init
+    ad.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_AHBPeriphClockCmd
+    ad.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_Init
+    ad.o(.text) refers to ad.o(.bss) for ADC_ConvertedValue
+    ad.o(.text) refers to ad.o(.data) for ADC_ready
+    pwm.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    pwm.o(.text) refers to stm32f10x_tim.o(.text) for TIM_TimeBaseInit
+    pwm.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_Init
+    pwm.o(.text) refers to lcdkey.o(.text) for delay
+    time1.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB1PeriphClockCmd
+    time1.o(.text) refers to stm32f10x_tim.o(.text) for TIM_TimeBaseInit
+    time1.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_Init
+    time1.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    time1.o(.text) refers to time1.o(.data) for CCR1_Val
+    rtc.o(.text) refers to stm32f10x_bkp.o(.text) for BKP_ReadBackupRegister
+    rtc.o(.text) refers to stm32f10x_exti.o(.text) for EXTI_ClearITPendingBit
+    rtc.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB1PeriphClockCmd
+    rtc.o(.text) refers to stm32f10x_pwr.o(.text) for PWR_BackupAccessCmd
+    rtc.o(.text) refers to stm32f10x_rtc.o(.text) for RTC_WaitForSynchro
+    rtc.o(.text) refers to stm32f10x_nvic.o(.text) for NVIC_Init
+    rtc.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    rtc.o(.text) refers to rtc.o(.data) for Rtc_time
+    rtc.o(.text) refers to function.o(.data) for gsv_work_mode
+    rtc.o(.text) refers to function.o(.bss) for mode
+    rtc.o(.text) refers to time1.o(.data) for Sec_Two
+    hardware.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    hardware.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_ResetBits
+    flash.o(.text) refers to stm32f10x_flash.o(.text) for FLASH_Unlock
+    watchdog.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    function.o(.text) refers to rtc.o(.text) for ReadBKPUV
+    function.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_GetFlagStatus
+    function.o(.text) refers to sweep.o(.text) for Init_Sweep
+    function.o(.text) refers to spot.o(.text) for Init_Spot
+    function.o(.text) refers to tele.o(.text) for Init_Tele
+    function.o(.text) refers to docking.o(.text) for Init_Docking
+    function.o(.text) refers to chargeing.o(.text) for Init_Chargeing
+    function.o(.text) refers to sleep.o(.text) for Init_Sleep
+    function.o(.text) refers to cease.o(.text) for Init_Cease
+    function.o(.text) refers to test.o(.text) for Do_Test
+    function.o(.text) refers to err.o(.text) for Do_Err
+    function.o(.text) refers to ring.o(.text) for stop_rap
+    function.o(.text) refers to function.o(.bss) for mode
+    function.o(.text) refers to function.o(.data) for gsv_work_mode
+    function.o(.text) refers to ring.o(.data) for Speed
+    function.o(.text) refers to lcdkey.o(.data) for Dis_On
+    function.o(.text) refers to ring.o(.bss) for l_rap
+    function.o(.text) refers to rtc.o(.data) for Rtc_time
+    function.o(.text) refers to io_drive.o(.data) for gbv_action_uv
+    function.o(.text) refers to wall_earth.o(.bss) for e_r
+    function.o(.text) refers to key.o(.bss) for l_bump
+    function.o(.text) refers to hwincept.o(.bss) for dummy_wall
+    function.o(.text) refers to power.o(.data) for dust_current
+    function.o(.text) refers to time1.o(.data) for giv_sys_time
+    function.o(.text) refers to io_drive.o(.text) for Init_Io_Driver
+    function.o(.text) refers to pwm.o(.text) for disable_pwm
+    function.o(.text) refers to power.o(.bss) for power
+    function.o(.text) refers to ad.o(.text) for account_current
+    function.o(.text) refers to hardware.o(.text) for Set_Dust_Motor
+    function.o(.text) refers to time1.o(.text) for DelayMs
+    function.o(.text) refers to wall_earth.o(.text) for Disable_wall
+    function.o(.text) refers to wall_earth.o(.data) for action_wall
+    cease.o(.text) refers to function.o(.text) for Display_Work_Mode
+    cease.o(.text) refers to lcdkey.o(.text) for clr_display
+    cease.o(.text) refers to ring.o(.text) for stop_rap
+    cease.o(.text) refers to io_drive.o(.text) for Init_Io_Driver
+    cease.o(.text) refers to wall_earth.o(.text) for Disable_earth
+    cease.o(.text) refers to hwincept.o(.text) for disable_hwincept
+    cease.o(.text) refers to hardware.o(.text) for Set_Speed_Send
+    cease.o(.text) refers to rtc.o(.text) for WriteWorkState
+    cease.o(.text) refers to a7105.o(.text) for A7105_rx
+    cease.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    cease.o(.text) refers to cease.o(.data) for piv_dis_preengage
+    cease.o(.text) refers to lcdkey.o(.data) for Dis_Preengage
+    cease.o(.text) refers to function.o(.bss) for mode
+    cease.o(.text) refers to time1.o(.data) for giv_sys_time
+    cease.o(.text) refers to rtc.o(.data) for PreengageDate
+    cease.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    cease.o(.text) refers to sleep.o(.text) for Init_Sleep
+    cease.o(.text) refers to sweep.o(.text) for Init_Sweep
+    cease.o(.text) refers to spot.o(.text) for Init_Spot
+    cease.o(.text) refers to docking.o(.text) for Init_Docking
+    cease.o(.text) refers to tele.o(.text) for Init_Tele
+    cease.o(.text) refers to key.o(.bss) for key1
+    cease.o(.text) refers to chargeing.o(.text) for Init_Chargeing
+    cease.o(.text) refers to power.o(.bss) for power
+    cease.o(.text) refers to function.o(.data) for giv_sys_err_bak
+    sweep.o(.text) refers to lcdkey.o(.text) for clr_display
+    sweep.o(.text) refers to function.o(.text) for clr_ram
+    sweep.o(.text) refers to wall_earth.o(.text) for Enable_earth
+    sweep.o(.text) refers to hwincept.o(.text) for enable_hwincept
+    sweep.o(.text) refers to hardware.o(.text) for Reset_Speed_Send
+    sweep.o(.text) refers to rtc.o(.text) for WriteWorkState
+    sweep.o(.text) refers to ring.o(.text) for stop_rap
+    sweep.o(.text) refers to cease.o(.text) for Init_Cease
+    sweep.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    sweep.o(.text) refers to spot.o(.text) for Init_Spot
+    sweep.o(.text) refers to docking.o(.text) for Init_Docking
+    sweep.o(.text) refers to err.o(.text) for Init_Err
+    sweep.o(.text) refers to lcdkey.o(.data) for Dis_On
+    sweep.o(.text) refers to function.o(.data) for gsv_work_mode
+    sweep.o(.text) refers to function.o(.bss) for mode
+    sweep.o(.text) refers to sweep.o(.data) for piv_yaokong
+    sweep.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    sweep.o(.text) refers to power.o(.data) for battery_voltage
+    sweep.o(.text) refers to time1.o(.data) for giv_sys_time
+    sweep.o(.text) refers to key.o(.bss) for l_lidi
+    sweep.o(.text) refers to hwincept.o(.bss) for l_hw
+    sweep.o(.text) refers to wall_earth.o(.bss) for w_l
+    sweep.o(.text) refers to ring.o(.bss) for l_rap
+    sweep.o(.text) refers to ring.o(.data) for Speed
+    docking.o(.text) refers to lcdkey.o(.text) for clr_display
+    docking.o(.text) refers to function.o(.text) for clr_ram
+    docking.o(.text) refers to wall_earth.o(.text) for Enable_earth
+    docking.o(.text) refers to hwincept.o(.text) for enable_hwincept
+    docking.o(.text) refers to hardware.o(.text) for Reset_Speed_Send
+    docking.o(.text) refers to rtc.o(.text) for WriteWorkState
+    docking.o(.text) refers to cease.o(.text) for Init_Cease
+    docking.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    docking.o(.text) refers to spot.o(.text) for Init_Spot
+    docking.o(.text) refers to sweep.o(.text) for Init_Sweep
+    docking.o(.text) refers to lcdkey.o(.data) for Dis_On
+    docking.o(.text) refers to function.o(.bss) for mode
+    docking.o(.text) refers to io_drive.o(.data) for gbv_action_s_motor
+    docking.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    docking.o(.text) refers to hwincept.o(.bss) for l_hw
+    docking.o(.text) refers to ring.o(.bss) for l_rap
+    docking.o(.text) refers to ring.o(.text) for stop_rap
+    docking.o(.text) refers to err.o(.text) for Init_Err
+    docking.o(.text) refers to time1.o(.text) for DelayMs
+    docking.o(.text) refers to function.o(.data) for giv_sys_err
+    docking.o(.text) refers to key.o(.bss) for l_bump
+    docking.o(.text) refers to time1.o(.data) for giv_sys_time
+    docking.o(.text) refers to docking.o(.data) for piv_stime
+    docking.o(.text) refers to chargeing.o(.text) for Init_Chargeing
+    docking.o(.text) refers to sleep.o(.text) for Init_Sleep
+    docking.o(.text) refers to power.o(.bss) for power
+    docking.o(.text) refers to power.o(.data) for battery_voltage
+    spot.o(.text) refers to lcdkey.o(.text) for clr_display
+    spot.o(.text) refers to function.o(.text) for clr_ram
+    spot.o(.text) refers to wall_earth.o(.text) for Enable_earth
+    spot.o(.text) refers to hwincept.o(.text) for enable_hwincept
+    spot.o(.text) refers to hardware.o(.text) for Reset_Speed_Send
+    spot.o(.text) refers to rtc.o(.text) for WriteWorkState
+    spot.o(.text) refers to cease.o(.text) for Init_Cease
+    spot.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    spot.o(.text) refers to docking.o(.text) for Init_Docking
+    spot.o(.text) refers to sweep.o(.text) for Init_Sweep
+    spot.o(.text) refers to ring.o(.text) for stop_rap
+    spot.o(.text) refers to err.o(.text) for Init_Err
+    spot.o(.text) refers to lcdkey.o(.data) for Dis_On
+    spot.o(.text) refers to function.o(.data) for gsv_work_mode
+    spot.o(.text) refers to function.o(.bss) for mode
+    spot.o(.text) refers to wall_earth.o(.bss) for w_l
+    spot.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    spot.o(.text) refers to key.o(.bss) for l_bump
+    spot.o(.text) refers to power.o(.data) for battery_voltage
+    spot.o(.text) refers to time1.o(.data) for giv_sys_time
+    spot.o(.text) refers to hwincept.o(.bss) for l_hw
+    spot.o(.text) refers to spot.o(.data) for piv_out
+    spot.o(.text) refers to ring.o(.bss) for l_rap
+    tele.o(.text) refers to lcdkey.o(.text) for clr_display
+    tele.o(.text) refers to function.o(.text) for clr_ram
+    tele.o(.text) refers to wall_earth.o(.text) for Enable_earth
+    tele.o(.text) refers to hwincept.o(.text) for enable_hwincept
+    tele.o(.text) refers to hardware.o(.text) for Reset_Speed_Send
+    tele.o(.text) refers to rtc.o(.text) for WriteWorkState
+    tele.o(.text) refers to err.o(.text) for Init_Err
+    tele.o(.text) refers to docking.o(.text) for Init_Docking
+    tele.o(.text) refers to io_drive.o(.text) for Enable_Beep_Five
+    tele.o(.text) refers to cease.o(.text) for Init_Cease
+    tele.o(.text) refers to ring.o(.text) for comm_rap
+    tele.o(.text) refers to sweep.o(.text) for Init_Sweep
+    tele.o(.text) refers to spot.o(.text) for Init_Spot
+    tele.o(.text) refers to lcdkey.o(.data) for Dis_On
+    tele.o(.text) refers to function.o(.bss) for mode
+    tele.o(.text) refers to power.o(.data) for battery_voltage
+    tele.o(.text) refers to function.o(.data) for giv_sys_err
+    tele.o(.text) refers to time1.o(.data) for giv_sys_time
+    tele.o(.text) refers to key.o(.bss) for l_lidi
+    tele.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    tele.o(.text) refers to hwincept.o(.bss) for l_hw
+    chargeing.o(.text) refers to lcdkey.o(.text) for clr_display
+    chargeing.o(.text) refers to function.o(.text) for clr_ram
+    chargeing.o(.text) refers to wall_earth.o(.text) for Disable_earth
+    chargeing.o(.text) refers to hwincept.o(.text) for disable_hwincept
+    chargeing.o(.text) refers to hardware.o(.text) for Set_Speed_Send
+    chargeing.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    chargeing.o(.text) refers to pwm.o(.text) for disable_pwm
+    chargeing.o(.text) refers to rtc.o(.text) for WriteWorkState
+    chargeing.o(.text) refers to ring.o(.text) for comm_rap
+    chargeing.o(.text) refers to cease.o(.text) for Init_Cease
+    chargeing.o(.text) refers to sweep.o(.text) for Init_Sweep
+    chargeing.o(.text) refers to spot.o(.text) for Init_Spot
+    chargeing.o(.text) refers to time1.o(.text) for DelayMs
+    chargeing.o(.text) refers to docking.o(.text) for Init_Docking
+    chargeing.o(.text) refers to power.o(.text) for ChargeControl
+    chargeing.o(.text) refers to lcdkey.o(.data) for Dis_On
+    chargeing.o(.text) refers to function.o(.bss) for mode
+    chargeing.o(.text) refers to power.o(.bss) for power
+    chargeing.o(.text) refers to power.o(.data) for POWER_ready
+    chargeing.o(.text) refers to chargeing.o(.data) for piv_seat
+    chargeing.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    chargeing.o(.text) refers to rtc.o(.data) for PreengageDate
+    chargeing.o(.text) refers to hwincept.o(.bss) for m_hw
+    sleep.o(.text) refers to lcdkey.o(.text) for clr_display
+    sleep.o(.text) refers to function.o(.text) for clr_ram
+    sleep.o(.text) refers to wall_earth.o(.text) for Disable_earth
+    sleep.o(.text) refers to hwincept.o(.text) for disable_hwincept
+    sleep.o(.text) refers to hardware.o(.text) for Set_Speed_Send
+    sleep.o(.text) refers to rtc.o(.text) for WriteWorkState
+    sleep.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_PLLCmd
+    sleep.o(.text) refers to stm32f10x_adc.o(.text) for ADC_Cmd
+    sleep.o(.text) refers to stm32f10x_iwdg.o(.text) for IWDG_ReloadCounter
+    sleep.o(.text) refers to stm32f10x_rtc.o(.text) for RTC_GetCounter
+    sleep.o(.text) refers to stm32f10x_pwr.o(.text) for PWR_BackupAccessCmd
+    sleep.o(.text) refers to sweep.o(.text) for Init_Sweep
+    sleep.o(.text) refers to cease.o(.text) for Init_Cease
+    sleep.o(.text) refers to stm32f10x_exti.o(.text) for EXTI_GenerateSWInterrupt
+    sleep.o(.text) refers to key.o(.text) for AutoReadKey
+    sleep.o(.text) refers to power.o(.text) for judge_charge
+    sleep.o(.text) refers to chargeing.o(.text) for Init_Chargeing
+    sleep.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    sleep.o(.text) refers to function.o(.bss) for mode
+    sleep.o(.text) refers to rtc.o(.data) for Rtc_time
+    sleep.o(.text) refers to a7105.o(.bss) for gsv_yaokong
+    sleep.o(.text) refers to a7105.o(.data) for gbv_a7105_reset
+    sleep.o(.text) refers to sleep.o(.data) for ExitInput
+    sleep.o(.text) refers to time1.o(.data) for giv_sys_time
+    sleep.o(.text) refers to key.o(.bss) for key1
+    sleep.o(.text) refers to power.o(.bss) for power
+    sleep.o(.text) refers to lcdkey.o(.data) for Dis_On
+    err.o(.text) refers to rtc.o(.text) for WriteBakErr
+    err.o(.text) refers to cease.o(.text) for Init_Cease
+    err.o(.text) refers to lcdkey.o(.text) for clr_display
+    err.o(.text) refers to function.o(.text) for clr_ram
+    err.o(.text) refers to wall_earth.o(.text) for Disable_earth
+    err.o(.text) refers to hwincept.o(.text) for disable_hwincept
+    err.o(.text) refers to hardware.o(.text) for Set_Speed_Send
+    err.o(.text) refers to sweep.o(.text) for Sweep_YaoKong_Manage
+    err.o(.text) refers to io_drive.o(.text) for Enable_Beep
+    err.o(.text) refers to function.o(.data) for giv_sys_err
+    err.o(.text) refers to function.o(.bss) for mode
+    err.o(.text) refers to lcdkey.o(.data) for Dis_On
+    err.o(.text) refers to key.o(.bss) for key1
+    err.o(.text) refers to time1.o(.data) for giv_sys_time
+    __main.o(!!!main) refers to rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    rtentry.o(.ARM.exidx) refers (Special) to rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    rtentry.o(.ARM.exidx) refers to rtentry.o(.ARM.Collect$$rtentry$$00000000) for .ARM.Collect$$rtentry$$00000000
+    rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(.text) for main
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000002) for .ARM.Collect$$rtentry$$00000002
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000009) for .ARM.Collect$$rtentry$$00000009
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for .ARM.Collect$$rtentry$$0000000C
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    rtentry4.o(.ARM.exidx) refers to rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to stm32f10x_vector.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002A) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000028) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000006) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000D) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000F) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002F) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000008) for __rt_lib_init_user_alloc_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers to fpinit.o(x$fpl$fpinit) for _fp_init
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$0000000C) refers to libinit2.o(.ARM.Collect$$libinit$$0000000B) for .ARM.Collect$$libinit$$0000000B
+    libinit2.o(.ARM.Collect$$libinit$$0000000E) refers to libinit2.o(.ARM.Collect$$libinit$$0000000B) for .ARM.Collect$$libinit$$0000000B
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000B) for .ARM.Collect$$libinit$$0000000B
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000B) for .ARM.Collect$$libinit$$0000000B
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000B) for .ARM.Collect$$libinit$$0000000B
+    libinit2.o(.ARM.Collect$$libinit$$00000022) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000023) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    fpinit.o(x$fpl$fpinit) refers to rt_fp_status_addr_intlibspace.o(.text) for __rt_fp_status_addr
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for .ARM.Collect$$rtexit$$00000002
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    rt_fp_status_addr.o(.text) refers to rt_fp_status_addr.o(.bss) for __rt_fp_status_addr_data
+    rt_fp_status_addr_intlibspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000006) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000009) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000003) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing flash.o(.constdata), (4 bytes).
+    Removing function.o(.constdata), (10 bytes).
+
+2 unused section(s) (total 14 bytes) removed from the image.
